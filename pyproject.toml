@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gradebook-merge"
+version = "0.6.2"
+description = "Merge Gradescope exports into an LMS gradebook upload CSV"
+requires-python = ">=3.10"
+authors = [{ name = "ana" }]
+dependencies = []            # stdlib only, on purpose: the lab machines have
+                             # python and nothing else, and getting a package
+                             # installed on them is a ticket
+
+[project.scripts]
+gbmerge = "gbmerge.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 96

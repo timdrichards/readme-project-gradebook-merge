@@ -1,0 +1,57 @@
+# gbmerge.yml -- optional. Without it, the built-in defaults are used.
+# Copy this to gbmerge.yml next to your roster. Flags beat this file; this file
+# beats the defaults. Nobody has ever successfully guessed the key names from
+# the source, so: every key gbmerge understands is here.
+#
+# This is our config for 187. Do not copy it into another course without
+# reading the grading section -- drop_lowest is a course policy, not a setting.
+
+# --- where things are -------------------------------------------------------
+exports_dir: "exports"
+exports_glob: "*_scores.csv"
+out: "upload.csv"
+encoding: "utf-8-sig"       # cp1252 if the file has been through Excel
+
+# --- column names -----------------------------------------------------------
+# Literally these strings, spaces and all.
+roster_id_column: "SIS User ID"
+roster_login_column: "SIS Login ID"
+gradescope_id_column: "SID"        # note: NOT "Student ID"
+gradescope_email_column: "Email"
+
+# --- matching ---------------------------------------------------------------
+# Tried in order. sis_id alone is the default. Add email if your students'
+# SIDs are blank in Gradescope: email matching compares the local part only,
+# since Gradescope has some people as @cs.umass.edu and the roster has the
+# same people as @umass.edu.
+match_on: [sis_id, email]
+fuzzy: false                # near-miss name matching. check every match it makes
+fuzzy_threshold: 0.88
+on_missing: "skip"          # skip / zero / fail -- a student with no submission
+on_ambiguous: "report"      # report / skip / first / fail
+
+# --- grading ----------------------------------------------------------------
+policy: "standard"
+# Lateness. The penalty is applied per STARTED day, not per completed day:
+# twenty minutes late is day one.
+late_penalty_per_day: 0.10
+max_late_days: 3
+beyond_max_late: "zero"     # past max_late_days: "zero" the whole thing, or "cap"
+grace_minutes: 0
+# We drop the lowest question on every assignment. Above 0 this recomputes the
+# total from the question columns, so the number written will NOT match the
+# Total Score column in Gradescope. Your course probably wants 0.
+drop_lowest: 1
+round: "half_up"            # none / int / half_up / half_even / tenth
+round_places: 2
+
+# Students exempt from the late penalty (accommodations). LMS ids, not emails
+# and not Gradescope SIDs. check will tell you if one is not on the roster.
+exempt_ids:
+  - 31402320
+  - 31402781
+
+# --- output -----------------------------------------------------------------
+# The LMS import wants the Test Student row back. Leave this alone.
+keep_test_student: true
+audit_log: "audit/187-fa26.jsonl"
