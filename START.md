@@ -39,6 +39,8 @@ This is the project with consequences. That should change how you write.
 | `config-example.yml` | An example config file, with the author's comments |
 | `issues.md` | Five issue threads, all filed by TAs, with the author's replies |
 | `ta-email.md` | An email from Tavi, a new TA, listing everywhere they got stuck |
+| `SPEC.md` | The README specification for this assignment: the sections your README needs, in order |
+| `PEER.md` | How your README is written on a branch, peer reviewed, merged, and submitted |
 
 There is no README. That is the assignment.
 
@@ -77,10 +79,13 @@ that appear nowhere else, and some of them are warnings.
 
 ## What the README has to do
 
-- **Follow the [Standard Readme spec](https://github.com/RichardLitt/standard-readme).**
-  That means its required sections, in its order: Title, Short Description, an
-  optional Long Description, Table of Contents, Install, Usage, API (this
-  project has one, so it is not optional here), Contributing, License.
+- **Follow [SPEC.md](SPEC.md).** It is this assignment's README specification,
+  adapted from the [Standard Readme spec](https://github.com/RichardLitt/standard-readme).
+  It lists the sections, in order: Title, an optional Banner, Description, Table
+  of Contents, Install, Usage, optional extra sections, API (required: this
+  project has one), Maintainers, and Credits. Read it before you start. It is
+  short, and it settles most of the arguments you would otherwise have with
+  yourself about what goes where.
 - **Show worked examples of both halves of the tool.**
   - *The CLI:* several real invocations with their output. More than the happy
     path — include at least one thing going wrong, and include a dry run.
@@ -88,6 +93,19 @@ that appear nowhere else, and some of them are warnings.
     extending it through the policy hook.
 - **Be usable by Tavi.** Someone reading only your README, with the files in
   front of them, should be able to run this correctly the first time.
+
+## How you write it, and how it is reviewed
+
+**Work only in the GitHub website.** Write `README.md` in your browser, in
+your repository on GitHub. Do not clone the repository or use another editor:
+every step of this assignment is explained inside GitHub, and course staff can
+only help with problems that happen there.
+
+You write the README on a branch called `readme-draft` and open a pull
+request, where two classmates review it line by line. You revise, they
+approve, you merge, and you submit a PDF of the finished README on Canvas.
+[PEER.md](PEER.md) explains every step, starting with how to create
+`README.md`.
 
 ## Three rules
 
@@ -105,6 +123,6 @@ is worse than no README at all.
 
 This repository is your own copy of the project, made from the course template. Write your README as a file named `README.md` at the top level of this repository, next to this `START.md`, not inside `src/`.
 
-Commit it to the `main` branch. GitHub shows `README.md` on the repository's front page, so open your repository in a browser after you commit and check that it reads the way you meant it to. Leave every other file as it is: your README describes this code, it does not change it.
+Do not commit it straight to the `main` branch. Create it on a branch called `readme-draft` and open a pull request, as [PEER.md](PEER.md) explains, so your reviewers can comment on it. Once both reviewers approve and you merge, GitHub shows `README.md` on the repository's front page: open your repository in a browser and check that it reads the way you meant it to. Leave every other file as it is: your README describes this code, it does not change it.
 
-Your instructor will tell you when drafts are due, and who to add as collaborators so they can read your work.
+Your instructor will tell you when drafts are due, who your reviewers are, and the GitHub usernames to add as collaborators.
